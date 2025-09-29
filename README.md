@@ -45,89 +45,67 @@ pip install -r requirements.txt
 **Step 3: Test the Installation**
 
 ```bash
-python double_slit_simulation.py
+python -c "from double_slit_simulation import DoubleslitSimulator; print('✅ Installation successful!')"
 ```
 
-This will run the simulation demonstrations and show you sample interference patterns.
+This will verify that the core simulation library is working correctly.
 
-**Step 4: Explore Interactive Examples**
+**Step 4: Start Interactive Exploration**
 
-```bash
-python examples.py
-```
-
-Or for interactive exploration, launch the Jupyter notebook:
+Launch the Jupyter notebook for interactive exploration:
 
 ```bash
 jupyter notebook interactive_notebook.ipynb
 ```
 
-**Step 5: Run Tests (Optional)**
+The notebook contains all examples, demonstrations, and educational content in one place.
 
-```bash
-pip install -r requirements-test.txt
-python -m pytest test_double_slit.py -v
+## Project Structure
+
+The project has been streamlined for optimal usability:
+
+```
+double-surrender-experiment/
+├── double_slit_simulation.py     # Core physics simulation library
+├── interactive_notebook.ipynb    # Educational interface & examples
+├── requirements.txt              # Python dependencies
+├── README.md                     # This documentation
+└── LICENSE                       # GPL-3.0 license
 ```
 
-All tests should pass, confirming that the physics simulations are working correctly.
+### Validation and Testing
 
-## Running the tests
+The simulation accuracy can be verified through the interactive notebook, which includes:
+- Physics accuracy demonstrations
+- Comparison with theoretical predictions
+- Interactive parameter exploration
+- Visual validation of results
 
-The project includes comprehensive tests to verify the physics accuracy and functionality of the simulation library.
-
-### Automated Tests
-
-Run the full test suite to verify everything is working correctly:
-
-```bash
-python -m pytest test_double_slit.py -v
-```
-
-### Test Categories
-
-**Physics Accuracy Tests:**
-- Wave function calculations
-- Interference pattern generation
-- Fringe spacing accuracy
-- Energy conservation
-- Parameter scaling laws
-
-**Simulation Functionality Tests:**
-- Single vs double slit patterns
-- Parameter range validation
-- Edge case handling
-- Data analysis tools
-
-**Integration Tests:**
-- Complete experiment simulation
-- Image processing for experimental data
-- Comparison between theory and experiment
-
-### Physical Experiment Validation
+### Physical Experiment Integration
 
 After building your physical setup:
 
 1. **Take clear photos** of your interference pattern
 2. **Measure key parameters** (distances, slit dimensions)
-3. **Use the analysis tools** to compare with simulation:
+3. **Use the simulation tools** to compare with theory:
 
 ```python
-from double_slit_simulation import InterferenceAnalyzer, DoubleslitSimulator
+from double_slit_simulation import DoubleslitSimulator, InterferenceAnalyzer
 
-# Load your experimental image
-analyzer = InterferenceAnalyzer()
-intensity = analyzer.load_image('your_experiment_photo.jpg')
-
-# Set up simulation with your parameters
+# Set up simulation with your measured parameters
 sim = DoubleslitSimulator(
-    wavelength=650e-9,        # Your laser wavelength
-    slit_separation=200e-6,   # Measured slit separation
-    screen_distance=1.0       # Measured distance
+    wavelength=650e-9,        # Your laser wavelength (nm)
+    slit_separation=200e-6,   # Measured slit separation (μm)
+    screen_distance=1.0       # Measured distance (m)
 )
 
-# Compare results
-comparison = analyzer.compare_with_theory(sim)
-print(f"Correlation with theory: {comparison['correlation']:.3f}")
+# Generate theoretical pattern
+y_pos, intensity = sim.simulate_experiment(screen_width=0.01, resolution=1000)
+
+# Analyze and compare (visual comparison through notebook)
+analyzer = InterferenceAnalyzer()
+analysis = analyzer.analyze_fringe_spacing(y_pos, intensity)
+print(f"Predicted fringe spacing: {analysis['fringe_spacing']*1000:.2f} mm")
 ```
 
 ## Deployment
@@ -150,11 +128,11 @@ This project is designed to be deployed as a complete learning experience combin
 
 ### Documentation and Reporting
 
-Complete documentation is available in the `docs/` folder:
+All documentation is integrated into the interactive notebook:
 - Comprehensive physics background
-- Detailed experimental procedures
-- Analysis methodologies
-- Troubleshooting guides
+- Step-by-step simulation procedures  
+- Interactive analysis tools
+- Educational explanations and examples
 
 ### Assessment Criteria
 
@@ -171,8 +149,8 @@ The project is evaluated on:
 - [NumPy](https://numpy.org/) - Scientific computing and array operations
 - [Matplotlib](https://matplotlib.org/) - Plotting and visualization
 - [SciPy](https://scipy.org/) - Scientific algorithms and signal processing
-- [OpenCV](https://opencv.org/) - Computer vision for image analysis
 - [Jupyter](https://jupyter.org/) - Interactive notebook environment
+- [ipywidgets](https://ipywidgets.readthedocs.io/) - Interactive widgets for education
 
 ## Contributing
 
@@ -192,8 +170,8 @@ This project welcomes contributions from students, educators, and physics enthus
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/new-simulation`)
 3. Make your changes with clear, documented code
-4. Add tests for new functionality
-5. Ensure all tests pass (`python -m pytest`)
+4. Test functionality using the notebook examples
+5. Verify core simulation works (`python -c "from double_slit_simulation import DoubleslitSimulator; DoubleslitSimulator()"`)
 6. Submit a pull request with detailed description
 
 ### Educational Use
