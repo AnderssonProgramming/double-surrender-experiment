@@ -210,13 +210,13 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-- **Physics Education Team** - *Initial development* - [AnderssonProgramming](https://github.com/AnderssonProgramming)
+- **Andersson David Sánchez Méndez** - *Initial development* - [AnderssonProgramming](https://github.com/AnderssonProgramming)  
 
-See also the list of [contributors](https://github.com/AnderssonProgramming/double-surrender-experiment/contributors) who participated in this project.
+- **Cristian Santiago Pedraza Rodríguez** - *Initial development* - [Cris-ECI](https://github.com/cris-eci)
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE) file for details.
+This project is licensed under the GPL-3.0 License - see the [LICENSE.md](LICENSE) file for details.
 
 ## Acknowledgments
 
