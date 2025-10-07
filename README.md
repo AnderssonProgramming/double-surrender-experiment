@@ -68,10 +68,25 @@ The project has been streamlined for optimal usability:
 double-surrender-experiment/
 ├── double_slit_simulation.py     # Core physics simulation library
 ├── interactive_notebook.ipynb    # Educational interface & examples
+├── assets/                       # Construction images and materials
+│   ├── image-1.jpg              # Laser and interference pattern
+│   ├── image-2.jpg              # Experimental setup view
+│   └── image-3.jpg              # Complete apparatus construction
 ├── requirements.txt              # Python dependencies
 ├── README.md                     # This documentation
 └── LICENSE                       # GPL-3.0 license
 ```
+
+### Key Components:
+
+- **`double_slit_simulation.py`**: Complete physics engine implementing Fraunhofer diffraction
+- **`interactive_notebook.ipynb`**: Step-by-step guide with:
+  - Interactive parameter exploration
+  - Construction guide with real images
+  - Data analysis tools
+  - Troubleshooting section
+  - Competition preparation checklist
+- **`assets/`**: Reference images showing the actual physical construction
 
 ### Validation and Testing
 
@@ -113,6 +128,13 @@ print(f"Predicted fringe spacing: {analysis['fringe_spacing']*1000:.2f} mm")
 ### Physical Experiment Setup
 
 This project is designed to be deployed as a complete learning experience combining simulation and hands-on experimentation.
+
+**Visual Construction Guide:**
+The `assets/` folder contains reference images showing the actual physical construction:
+- **image-1.jpg & image-2.jpg**: Laser beam and interference pattern in action
+- **image-3.jpg**: Complete apparatus showing cardboard frame, aluminum foil slits, and laser pointer
+
+All construction steps and materials are detailed in the interactive notebook with these reference images.
 
 **Classroom Deployment:**
 - Each team (max 3 students) builds their own double-slit apparatus
